@@ -5,6 +5,7 @@ import { LogoMark } from "./LogoMark";
 
 export function Footer() {
   const { t } = useLang();
+  const year = new Date().getFullYear();
 
   return (
     <footer className="footer">
@@ -31,7 +32,7 @@ export function Footer() {
           </div>
         </div>
         <div className="footer-bottom">
-          <span>{t("foot_copy")}</span>
+          <span>{t("foot_copy").replace("{year}", year)}</span>
           <div className="footer-links">
             <a href="#">{t("foot_priv")}</a>
             <a href="#">{t("foot_terms")}</a>

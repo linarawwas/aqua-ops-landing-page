@@ -1,9 +1,10 @@
 "use client";
 
 import { useLang } from "./LanguageProvider";
+import { waLink } from "./dictionary";
 
 export function Hero() {
-  const { t, tHtml } = useLang();
+  const { t, tHtml, lang } = useLang();
 
   return (
     <section className="hero" id="top">
@@ -22,10 +23,20 @@ export function Hero() {
           />
           <p className="lead reveal d2">{t("hero_lead")}</p>
           <div className="hero-ctas reveal d3">
-            <a className="btn btn-primary btn-lg" href="#features">
+            <a
+              className="btn btn-primary btn-lg"
+              href={waLink(lang, "inaction")}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               {t("hero_cta1")}
             </a>
-            <a className="btn btn-outline btn-lg" href="#contact">
+            <a
+              className="btn btn-outline btn-lg"
+              href={waLink(lang, "access")}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               {t("hero_cta2")}
             </a>
           </div>

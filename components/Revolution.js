@@ -27,7 +27,7 @@ export function Revolution() {
         <div className="rev-stats">
           <div className="rev-stat reveal">
             <div className="big ui-num">
-              400<span className="cyan">+</span>
+              3,000<span className="cyan">+</span>
             </div>
             <div className="lbl">{t("rev_s1")}</div>
           </div>

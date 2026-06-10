@@ -3,9 +3,10 @@
 import { useEffect, useState } from "react";
 import { useLang } from "./LanguageProvider";
 import { LogoMark } from "./LogoMark";
+import { waLink } from "./dictionary";
 
 export function Navbar() {
-  const { t, toggle } = useLang();
+  const { t, lang, toggle } = useLang();
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -61,7 +62,12 @@ export function Navbar() {
             </svg>
             <span>{t("lang_label")}</span>
           </button>
-          <a className="btn btn-primary" href="#contact">
+          <a
+            className="btn btn-primary"
+            href={waLink(lang, "demo")}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             {t("nav_demo")}
           </a>
         </div>

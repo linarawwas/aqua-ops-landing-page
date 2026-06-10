@@ -1,4 +1,26 @@
 // All bilingual copy for AquaOps. Keys map to { ar, en }.
+
+export const WA_NUMBER = "96171950364";
+
+export const waLink = (lang, action) => {
+  const msgs = {
+    demo: {
+      ar: "مرحباً، أريد طلب عرض توضيحي لـ AquaOps",
+      en: "Hi, I'd like to request a demo of AquaOps",
+    },
+    access: {
+      ar: "مرحباً، أريد طلب وصول إلى AquaOps",
+      en: "Hi, I'd like to request access to AquaOps",
+    },
+    inaction: {
+      ar: "مرحباً، أريد مشاهدة AquaOps أثناء العمل",
+      en: "Hi, I'd like to see AquaOps in action",
+    },
+  };
+  const msg = (msgs[action] || msgs.access)[lang] || (msgs[action] || msgs.access).ar;
+  return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+};
+
 export const I18N = {
   /* ---------- NAV ---------- */
   nav_features: { ar: "المزايا", en: "Features" },
@@ -46,7 +68,7 @@ export const I18N = {
   p2_t: { ar: "سعر الليرة تغيّر مجدداً. سجلاتك لا.", en: "The pound rate changed again. Your records didn't." },
   p2_d: { ar: "تتعقّب المدفوعات بعملتين، بآلة حاسبة ودعاء بأن تطلع صح.", en: "You're tracking payments in two currencies with a calculator and a prayer." },
   p3_t: { ar: "أين قواريرك؟", en: "Where are your bottles?" },
-  p3_d: { ar: "لديك ٢٠٠٠ قارورة بين ٤٠٠ زبون، ولا طريقة موثوقة لمعرفة مَن يحمل ماذا.", en: "2,000 bottles in circulation across 400 customers and no reliable way to know who has what." },
+  p3_d: { ar: "الآلاف من القوارير بين مئات الزبائن، ولا طريقة موثوقة لمعرفة مَن يحمل ماذا.", en: "Thousands of bottles in circulation across hundreds of customers, and no reliable way to know who has what." },
   p4_t: { ar: "لا إشارة في الحي. لا إشارة في الوادي.", en: "No signal in the neighborhood. No signal in the valley." },
   p4_d: { ar: "سائقك لا يستطيع استخدام أنظمةٍ تتطلّب إنترنت. فيعود إلى الورق.", en: "Your driver can't use systems that require internet. So he goes back to paper." },
   p5_t: { ar: "زبونٌ يقول إنه دفع. وليس لديك إثبات.", en: "A customer says they paid. You have no proof." },
@@ -114,8 +136,8 @@ export const I18N = {
   /* ---------- REVOLUTION ---------- */
   rev_h1:   { ar: "التوزيع اللبناني يعمل على الورق منذ ٤٠ عاماً.", en: "Lebanese distribution has been running on paper for 40 years." },
   rev_ends: { ar: "هنا ينتهي ذلك.", en: "It ends here." },
-  rev_body: { ar: "AquaOps هو أوّل نظامٍ مبنيٍّ بالكامل على طريقة عمل توزيع المياه فعلياً في لبنان — انقطاع الكهرباء، ضعف الإشارة، العملتان، الـ٤٠٠ زبون، والقوارير التي يجب أن تعود. لم نعدّل أداةً أجنبية. بنينا أداتك أنت.", en: "AquaOps is the first system built entirely around how water distribution actually works in Lebanon — the power cuts, the bad signal, the two currencies, the 400 customers, the bottles that need to come back. We didn't adapt a foreign tool. We built yours." },
-  rev_s1: { ar: "زبون تُدار لكلّ شركة", en: "customers managed per company" },
+  rev_body: { ar: "AquaOps هو أوّل نظامٍ مبنيٍّ بالكامل على طريقة عمل توزيع المياه فعلياً في لبنان — انقطاع الكهرباء، ضعف الإشارة، العملتان، مئات أو آلاف الزبائن، والقوارير التي يجب أن تعود. لم نعدّل أداةً أجنبية. بنينا أداتك أنت.", en: "AquaOps is the first system built entirely around how water distribution actually works in Lebanon — the power cuts, the bad signal, the two currencies, hundreds or thousands of customers, and the bottles that need to come back. We didn't adapt a foreign tool. We built yours." },
+  rev_s1: { ar: "زبون تُدار في شركة واحدة اليوم", en: "customers managed in one company today" },
   rev_s2: { ar: "عملتان تُتعقّبان في آنٍ واحد", en: "currencies tracked simultaneously" },
   rev_s3: { ar: "سجلّ يضيع بسبب ضعف الاتصال", en: "records lost to bad connectivity" },
 
@@ -134,17 +156,15 @@ export const I18N = {
   ao4: { ar: "تقارير شهرية", en: "Monthly reports" },
 
   /* ---------- CTA ---------- */
-  cta_head: { ar: "جاهزٌ لإدارة عمليّتك كأننا في ٢٠٢٥؟", en: "Ready to run your operation like it's 2025?" },
-  cta_sub:  { ar: "يستقبل AquaOps حالياً موزّعي المياه في لبنان. اطلب وصولاً وسنُجهّز شركتك، ونستورد زبائنك، ونجعل سائقك يوزّع عبر التطبيق خلال أسبوع.", en: "AquaOps is currently onboarding Lebanese water distributors. Request access and we'll set up your company, import your customers, and have your driver delivering on the app within a week." },
-  cta_ph:   { ar: "أدخل بريدك الإلكتروني", en: "Enter your email" },
-  cta_btn:  { ar: "اطلب وصولاً", en: "Request Access" },
-  cta_note: { ar: "دون أيّ التزام. الإعداد يستغرق يوماً واحداً.", en: "No commitment. Setup takes one day." },
-  cta_thanks: { ar: "شكراً! سنتواصل معك قريباً.", en: "Thanks! We'll be in touch soon." },
+  cta_head: { ar: "جاهزٌ لإدارة عمليّتك كأننا في {year}؟", en: "Ready to run your operation like it's {year}?" },
+  cta_sub:  { ar: "يستقبل AquaOps حالياً موزّعي المياه في لبنان. تواصل معنا وسنُجهّز شركتك، ونستورد زبائنك، ونجعل سائقك يوزّع عبر التطبيق خلال يوم.", en: "AquaOps is currently onboarding Lebanese water distributors. Reach out and we'll set up your company, import your customers, and have your driver delivering on the app within a day." },
+  cta_btn:  { ar: "تواصل معنا عبر واتساب", en: "Chat with us on WhatsApp" },
+  cta_note: { ar: "دون أيّ التزام. نردّ عادةً في غضون ساعة.", en: "No commitment. We usually reply within an hour." },
 
   /* ---------- FOOTER ---------- */
   foot_tag:   { ar: "نظام عمليات التوزيع المبنيّ للبنان.", en: "The distribution operations system built for Lebanon." },
   foot_built: { ar: "صُنع للبنان", en: "Built for Lebanon" },
-  foot_copy:  { ar: "© ٢٠٢٦ AquaOps. جميع الحقوق محفوظة.", en: "© 2026 AquaOps. All rights reserved." },
+  foot_copy:  { ar: "© {year} AquaOps. جميع الحقوق محفوظة.", en: "© {year} AquaOps. All rights reserved." },
   foot_priv:  { ar: "الخصوصية", en: "Privacy" },
   foot_terms: { ar: "الشروط", en: "Terms" }
 };
